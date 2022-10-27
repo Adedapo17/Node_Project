@@ -1,0 +1,15 @@
+{
+  "name": "node-project-1",
+  "version": "1.0.0",
+  "description": "This is a node project",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "author": "Olaifa Abdulmaleek Adedapo",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  }
+}
