@@ -6,8 +6,9 @@ const home = readFileSync('./public/index.html')
 const about = readFileSync('./public/about.html')
 const contact = readFileSync('./public/contact.html')
 
-const server = http.createServer((request, response) => {
+const server = http.createServer((req, res) => {
    const url = req.url
+   let filePath = path.join(__dirname, 'public', req.url === '/' ? 'index.html': req.url)
    let contentType = getContentType(filePath) || 'text/html'
   //create web server
   if (url == '/') {
@@ -21,13 +22,13 @@ const server = http.createServer((request, response) => {
     res.writeHead(302, { Location: '/' })
     res.write(home)
     res.end()
-  } else if (url == '/about') {
+  } else if (url == '/about.html') {
     res.writeHead(200, {
       'Content-Type': contentType
     })
     res.write(about)
     res.end()
-  } else if (url == '/contact') {
+  } else if (url == '/contact.html') {
     res.writeHead(200, {
       'Content-Type': contentType
     })
